@@ -1,4 +1,4 @@
-package com.mzz.snaker.gateway.server;
+package com.mzz.gateway.server;
 
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpHandler;

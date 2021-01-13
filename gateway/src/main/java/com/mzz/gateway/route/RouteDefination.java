@@ -1,4 +1,4 @@
-package com.mzz.snaker.gateway.route;
+package com.mzz.gateway.route;
 
 import java.util.List;
 

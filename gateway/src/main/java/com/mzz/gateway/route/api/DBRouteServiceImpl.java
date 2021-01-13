@@ -1,6 +1,6 @@
-package com.mzz.snaker.gateway.route.api;
+package com.mzz.gateway.route.api;
 
-import com.mzz.snaker.gateway.route.RouteDefination;
+import com.mzz.gateway.route.RouteDefination;
 
 import java.util.ArrayList;
 import java.util.HashMap;
