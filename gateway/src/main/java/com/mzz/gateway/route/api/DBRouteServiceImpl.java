@@ -15,9 +15,9 @@ public class DBRouteServiceImpl implements IRouteService {
         RouteDefination r1 = new RouteDefination();
         r1.setSourcePath("/test");
         List<String> target = new ArrayList<>();
-        target.add("/test/1");
-        target.add("/test/2");
-        target.add("/test/3");
+        target.add("http://wwww.baidu.com");
+        target.add("http://www.hupu.com");
+        target.add("https://www.sina.com.cn/");
         r1.setTargetUrl(target);
         routeMap.put("/test",r1);
     }
