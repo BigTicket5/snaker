@@ -2,27 +2,37 @@ package com.mzz.gateway.route.api;
 
 import com.mzz.gateway.route.RouteDefination;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 public class DBRouteServiceImpl implements IRouteService {
 
-    Map<String,RouteDefination> routeMap = new HashMap<>();
+    List<RouteDefination> routeDefinationList = new ArrayList<>();
 
     public DBRouteServiceImpl(){
         RouteDefination r1 = new RouteDefination();
         r1.setSourcePath("/test");
         List<String> target = new ArrayList<>();
-        target.add("http://wwww.baidu.com");
-        target.add("http://www.hupu.com");
+        target.add("https://wwww.taobao.com");
+        target.add("https://www.hupu.com");
         target.add("https://www.sina.com.cn/");
         r1.setTargetUrl(target);
-        routeMap.put("/test",r1);
+        routeDefinationList.add(r1);
+        RouteDefination r2 = new RouteDefination();
+        r2.setSourcePath("/hello");
+        List<String> target2 = new ArrayList<>();
+        target2.add("https://www.jd.com");
+        r2.setTargetUrl(target2);
+        routeDefinationList.add(r2);
+
     }
 
+    @Override
     public RouteDefination getRoute(String sourcePath) {
-        return routeMap.get(sourcePath);
+        return null;
+    }
+
+    @Override
+    public Set<RouteDefination> getApiSources(){
+        return new HashSet<>(routeDefinationList);
     }
 }

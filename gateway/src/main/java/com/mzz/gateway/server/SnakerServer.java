@@ -1,5 +1,6 @@
 package com.mzz.gateway.server;
 
+import com.mzz.gateway.route.RouteDefination;
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
@@ -8,6 +9,8 @@ import sun.net.httpserver.HttpsServerImpl;
 
 import java.io.IOException;
 import java.net.InetSocketAddress;
+import java.util.List;
+import java.util.Set;
 import java.util.concurrent.Executor;
 
 public class SnakerServer extends HttpServer {
@@ -66,5 +69,9 @@ public class SnakerServer extends HttpServer {
     @Override
     public InetSocketAddress getAddress() {
         return httpServer.getAddress();
+    }
+
+    public void addRoutes(Set<RouteDefination> routes){
+        routes.forEach(p->this.createContext(p.getSourcePath(),new SnakerRouteHandler(p)));
     }
 }

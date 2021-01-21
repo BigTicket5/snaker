@@ -1,6 +1,7 @@
 package com.mzz.gateway.server;
 
 import com.mzz.gateway.client.SnakerClient;
+import com.mzz.gateway.route.RouteDefination;
 import com.mzz.gateway.route.api.DBRouteServiceImpl;
 import com.mzz.gateway.route.api.IRouteService;
 import com.sun.net.httpserver.HttpExchange;
@@ -16,17 +17,17 @@ import java.util.List;
 
 public class SnakerRouteHandler implements HttpHandler {
 
-    private String url;
+    private RouteDefination routeDefination;
 
-    public SnakerRouteHandler(String url){
-        this.url = url;
+    public SnakerRouteHandler(RouteDefination routeDefination){
+        this.routeDefination = routeDefination;
     }
 
-    IRouteService routeService = new DBRouteServiceImpl();
+
 
     @Override
     public void handle(HttpExchange httpExchange) throws IOException {
-        List<String> list = routeService.getRoute(url).getTargetUrl();
+        List<String> list = routeDefination.getTargetUrl();
         int randomIndex = (int)(Math.random()*list.size());
         String targetUrl = list.get(randomIndex);
         HttpUriRequest getRequest = new HttpGet(targetUrl);

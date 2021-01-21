@@ -8,6 +8,7 @@ import org.apache.http.impl.client.LaxRedirectStrategy;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
 
 public class SnakerClient {
+
     public static CloseableHttpClient initClient(){
         PoolingHttpClientConnectionManager httpClientConnectionManager = new PoolingHttpClientConnectionManager();
         httpClientConnectionManager.setMaxTotal(50);
@@ -27,7 +28,6 @@ public class SnakerClient {
                 .setDefaultRequestConfig(requestConfig)
                 .setRedirectStrategy(redirectStrategy)
                 .setDefaultSocketConfig(socketConfig)
-                //不要多问这个变量不存在，自己可以动手
                 .setUserAgent(HttpContants.USER_AGENT)
                 .build();
         return client;
