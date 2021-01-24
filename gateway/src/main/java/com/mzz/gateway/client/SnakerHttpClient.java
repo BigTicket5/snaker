@@ -6,8 +6,6 @@ import org.apache.http.impl.client.CloseableHttpClient;
 import org.apache.http.impl.client.HttpClientBuilder;
 import org.apache.http.impl.client.LaxRedirectStrategy;
 import org.apache.http.impl.conn.PoolingHttpClientConnectionManager;
-import org.springframework.context.annotation.Bean;
-
 
 @SnakerClient
 public class SnakerHttpClient {
