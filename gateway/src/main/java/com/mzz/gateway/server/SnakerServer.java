@@ -4,6 +4,7 @@ import com.mzz.gateway.route.RouteDefination;
 import com.sun.net.httpserver.HttpContext;
 import com.sun.net.httpserver.HttpHandler;
 import com.sun.net.httpserver.HttpServer;
+import org.springframework.stereotype.Component;
 import sun.net.httpserver.HttpServerImpl;
 import sun.net.httpserver.HttpsServerImpl;
 
@@ -13,6 +14,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.concurrent.Executor;
 
+@Component
 public class SnakerServer extends HttpServer {
 
     HttpServer httpServer = HttpServer.create();

@@ -1,9 +1,11 @@
 package com.mzz.gateway.route.api;
 
 import com.mzz.gateway.route.RouteDefination;
+import org.springframework.stereotype.Service;
 
 import java.util.*;
 
+@Service
 public class DBRouteServiceImpl implements IRouteService {
 
     List<RouteDefination> routeDefinationList = new ArrayList<>();
