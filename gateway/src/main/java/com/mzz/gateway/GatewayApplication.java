@@ -9,10 +9,6 @@ import org.springframework.context.ApplicationContext;
 public class GatewayApplication {
 
     public static void main(String[] args){
-        ApplicationContext applicationContext = SpringApplication.run(GatewayApplication.class,args);
-        String[] beanNames = applicationContext.getBeanDefinitionNames();
-        for(String bn : beanNames){
-            System.out.println(bn);
-        }
+        SpringApplication.run(GatewayApplication.class,args);
     }
 }
