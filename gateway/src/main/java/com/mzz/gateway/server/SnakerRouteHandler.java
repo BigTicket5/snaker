@@ -9,6 +9,7 @@ import org.apache.http.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.io.OutputStream;
 import java.util.List;
@@ -17,7 +18,7 @@ public class SnakerRouteHandler implements HttpHandler {
 
     private RouteDefination routeDefination;
 
-    @Autowired
+    @Resource(name="${snaker.remote.call.service}")
     private RemoteCallService remoteCallService;
 
     public SnakerRouteHandler(RouteDefination routeDefination){
@@ -32,7 +33,7 @@ public class SnakerRouteHandler implements HttpHandler {
         List<String> list = routeDefination.getTargetUrl();
         int randomIndex = (int)(Math.random()*list.size());
         String targetUrl = list.get(randomIndex);
-        HttpResponse httpResponse = (HttpResponse) remoteCallService.callRemote(targetUrl);
+        HttpResponse httpResponse = (HttpResponse) remoteCallService.callRemote(targetUrl,httpExchange);
         httpResponse.getEntity().writeTo(os);
         os.close();
     }

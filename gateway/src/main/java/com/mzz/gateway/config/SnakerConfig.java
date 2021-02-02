@@ -9,6 +9,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.DependsOn;
 import org.springframework.core.annotation.Order;
 
+import javax.annotation.Resource;
 import java.io.IOException;
 import java.net.InetSocketAddress;
 import java.util.concurrent.Executor;
@@ -17,7 +18,7 @@ import java.util.concurrent.Executors;
 @Configuration
 public class SnakerConfig {
 
-    @Autowired
+    @Resource(name="${snaker.route.service}")
     private IRouteService routeService;
 
     @Bean
